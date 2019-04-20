@@ -9,7 +9,7 @@ type TodoCollection struct {
 	Todos []Todo `json:"items"`
 }
 
-func GetTodo() (tc TodoCollection) {
+func GetTodos() (tc TodoCollection) {
 	tc = TodoCollection {
 		[]Todo {
 			{1, "todo"},
