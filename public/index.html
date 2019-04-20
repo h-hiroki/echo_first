@@ -1,6 +1,5 @@
 <html>
 <head>
-    <!-- Vue.js -->
     <script src="https://cdn.jsdelivr.net/npm/vue@2.5.13/dist/vue.js"></script>
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 </head>
@@ -10,7 +9,7 @@
     <button @click="showTodo">Todoを表示する。</button>
     <ul>
         <li v-for="todo in todos">
-            {{ todo.name }}
+            {{ todo.name }} | {{todo.status}}
         </li>
     </ul>
 </div>
