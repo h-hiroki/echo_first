@@ -1,10 +1,35 @@
-<!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <title>echo + react</title>
+    <!-- Vue.js -->
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.5.13/dist/vue.js"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 </head>
 <body>
-    <h1>echoとReactでつくるよてい</h1>
+<div id="top">
+    <h1>Hello Vue.js</h1>
+    <button @click="showTodo">Todoを表示する。</button>
+    <ul>
+        <li v-for="todo in todos">
+            {{ todo.name }}
+        </li>
+    </ul>
+</div>
+<script>
+    new Vue({
+        el: '#top',
+        data: {
+            todos: [],
+        },
+        methods: {
+            showTodo: function() {
+                axios.get('/todos').then(res => {
+                    this.todos = res.data.items || [];
+                }).catch(function (error) {
+                    console.log(error);
+                });
+            },
+        }
+    })
+</script>
 </body>
 </html>
